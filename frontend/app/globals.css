@@ -1,0 +1,132 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0a0f1e;
+  --bg-card: #111827;
+  --accent:  #00d4ff;
+  --text:    #e5e7eb;
+  --muted:   #6b7280;
+  --border:  #1f2d40;
+  --danger:  #ef4444;
+  --success: #10b981;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  background: rgba(10,15,30,0.97);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar h1 { font-size: 1.4rem; color: var(--accent); }
+.navbar span { font-size: 0.85rem; color: var(--muted); }
+
+/* MAIN */
+.main-container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+
+/* CREATE FORM */
+.create-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.create-form h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+.create-form input,
+.create-form textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.create-form input:focus,
+.create-form textarea:focus { border-color: var(--accent); }
+.create-form textarea { resize: vertical; min-height: 80px; }
+.btn-create {
+  background: var(--accent);
+  color: #0a0f1e;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.btn-create:hover { background: #00b8d9; transform: translateY(-1px); }
+.btn-create:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-error { color: var(--danger); font-size: 0.83rem; margin-bottom: 0.5rem; }
+
+/* NOTES */
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.notes-header h2 { font-size: 1.1rem; }
+.notes-count {
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: var(--accent);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* NOTE CARD */
+.note-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.note-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-3px); }
+.note-id { font-size: 0.7rem; color: var(--muted); font-family: monospace; }
+.note-title { font-size: 1rem; font-weight: 600; }
+.note-content { font-size: 0.88rem; color: var(--muted); flex: 1; line-height: 1.6; }
+.btn-delete {
+  align-self: flex-end;
+  background: rgba(239,68,68,0.1);
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 6px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-delete:hover { background: var(--danger); color: white; }
+
+/* EMPTY STATE */
+.empty-state { text-align: center; padding: 3rem; color: var(--muted); }
+.empty-state p { font-size: 2.5rem; margin-bottom: 0.5rem; }
